@@ -9,6 +9,6 @@ export class RoomService {
   constructor(private http: HttpClient) { }
 
   getRooms() {
-    return this.http.get('http://localhost:3000/rooms');
+    return this.http.get('/rooms');
   }
 }
