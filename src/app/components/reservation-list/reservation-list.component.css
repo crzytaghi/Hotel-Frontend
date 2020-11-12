@@ -1,0 +1,30 @@
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 40%;
+}
+
+div h2 {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border: 2px solid grey;
+}
+
+th {
+    border: 1px solid blue;
+}
+
+.update {
+    background-color: cornflowerblue;
+    border-radius: 3px;
+}
+
+.delete {
+    background-color: crimson;
+    border-radius: 3px;
+}

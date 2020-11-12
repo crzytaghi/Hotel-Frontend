@@ -1,0 +1,21 @@
+.search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    margin: auto;
+}
+
+table {
+    border: 2px solid grey;
+    margin: auto;
+    margin-top: 10px;
+}
+
+th, tr {
+    border: 1px solid grey;
+}
+
+h2 {
+    text-align: center;
+}

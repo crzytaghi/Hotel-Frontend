@@ -1,0 +1,24 @@
+
+<div class="table">
+    <h2>Reservations</h2>
+    <table *ngFor="let reservation of reservations">
+        <tr>
+            <th>Room Number</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th><button class="update" (click)="toggleUpdate(reservation)">Toggle Update</button></th>
+        </tr>
+        <tr *ngIf="showUpdateForm">
+            <th><input type="text" value={{reservation.room_number}} [(ngModel)]="reservation.room_number"></th>
+            <th><input type="date" value={{reservation.check_in}} [(ngModel)]="reservation.check_in"></th>
+            <th><input type="date" value={{reservation.check_out}} [(ngModel)]="reservation.check_out"></th>
+            <th><input type="submit" (click)="update(reservation)"></th>
+        </tr>
+        <tr *ngIf="!showUpdateForm">
+            <th>{{reservation.room_number}}</th>
+            <th>{{reservation.check_in}}</th>
+            <th>{{reservation.check_out}}</th>
+            <th><button class="delete" (click)="delete(reservation)">DELETE</button></th>
+        </tr>
+    </table>
+</div>

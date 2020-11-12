@@ -1,0 +1,27 @@
+<div class="search">
+    <h2>Book a Room</h2>
+    Check-In: <input type="date" [(ngModel)]="checkIn"><br>
+    Check-Out: <input type="date" [(ngModel)]="checkOut"><br>
+    <input type="submit" value="Search" (click)="search()">
+</div>
+
+<!-- Checks to see if the rooms array is true, if so, displays the array -->
+<div class="rooms" *ngIf="rooms">
+  <h2>Available Rooms</h2>
+  <table>
+    <thead>
+        <th>Room #</th>
+        <th>Price Per Night</th>
+        <th>Maximum Occupancy</th>
+    </thead>
+    <tbody *ngFor="let room of rooms">
+        <th>{{room.room_number}}</th>
+        <th>{{room.price}}</th>
+        <th>{{room.max_occupancy}}</th>
+        <th><button (click)="reserve(room)" routerLink="/reservations">RESERVE</button></th>
+    </tbody>
+  </table>
+</div>
+
+
+<router-outlet></router-outlet>
