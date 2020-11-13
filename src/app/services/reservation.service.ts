@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class ReservationService {
 
   private API_HOST = environment.apiHost;
-  private RESERVATIONS = `${API_HOST}/reservations/`
+  private RESERVATIONS = `${this.API_HOST}/reservations/`
 
   private reservationsURL = 'postgres://rzvpluvufnhwxn:392c9a5622ec268f75a3d76eadd45a206d13dfa39138ac531c687e6c56789509@ec2-52-71-85-210.compute-1.amazonaws.com:5432/dfh5t3jjlugdgu'; //URL to database
 
