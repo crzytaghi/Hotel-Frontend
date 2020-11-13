@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; //Inject HttpClient as a dependency
 import { environment } from 'src/environments/environment';
 
-const API_HOST = environment.apiHost;
-const RESERVATIONS = `${API_HOST}/reservations/`
-
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
+
+  private API_HOST = environment.apiHost;
+  private RESERVATIONS = `${API_HOST}/reservations/`
 
   private reservationsURL = 'postgres://rzvpluvufnhwxn:392c9a5622ec268f75a3d76eadd45a206d13dfa39138ac531c687e6c56789509@ec2-52-71-85-210.compute-1.amazonaws.com:5432/dfh5t3jjlugdgu'; //URL to database
 
@@ -17,7 +17,7 @@ export class ReservationService {
   constructor(private http: HttpClient) { }
 
   getReservations() {
-    return this.http.get(RESERVATIONS);
+    return this.http.get(this.RESERVATIONS);
   }
 
   // NEED TO COMPLETE DELETE AND UPDATE ROUTES
@@ -25,7 +25,7 @@ export class ReservationService {
   deleteReservation(reservation) {
     console.log(reservation);
     
-    const url = `${RESERVATIONS}/${reservation}`;
+    const url = `${this.RESERVATIONS}/${reservation}`;
     console.log(url);
 
     return this.http.delete(url);
@@ -37,7 +37,7 @@ export class ReservationService {
     console.log(checkIn);
     console.log(checkOut);
     
-    const url = `${RESERVATIONS}/${reservation}`;
+    const url = `${this.RESERVATIONS}/${reservation}`;
     const body = {
       room_number: roomNumber,
       check_in: checkIn,
@@ -52,7 +52,7 @@ export class ReservationService {
       check_in: checkIn,
       check_out: checkOut
     };
-    return this.http.post(RESERVATIONS,body);
+    return this.http.post(this.RESERVATIONS,body);
   }
   
 }
