@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class RoomService {
 
   private API_HOST = environment.apiHost;
-  private ROOMS = `${this.API_HOST}/rooms/`;
+  private ROOMS = `${this.API_HOST}/rooms`;
 
   constructor(private http: HttpClient) { }
 
