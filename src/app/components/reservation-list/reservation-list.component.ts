@@ -23,9 +23,11 @@ export class ReservationListComponent implements OnInit {
     })
   }
 
+  // Delete the current reservation, display a message to the user, then reload the page after waiting 1 second. 
   delete(reservation) {
     this.reservationService.deleteReservation(reservation.reservation_id).subscribe();
-    window.location.reload();
+    window.alert(`Room ${reservation.room_number} Deleted! Click Ok to reload the page`);
+    setTimeout(function(){window.location.reload()},500);
   }
 
   public showUpdateForm: boolean = false;

@@ -5,7 +5,7 @@
     <input type="submit" value="Search" (click)="search()">
 </div>
 
-<!-- Checks to see if the rooms array is true, if so, displays the array -->
+<!-- Checks to see if the rooms array is a truthy value, if so, displays the array -->
 <div class="rooms" *ngIf="rooms">
   <h2>Available Rooms</h2>
   <table>

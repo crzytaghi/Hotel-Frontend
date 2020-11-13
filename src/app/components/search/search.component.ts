@@ -25,14 +25,23 @@ export class SearchComponent implements OnInit {
     })
   }
 
-  // The search function will run once the search button is clicked, and will access all of the data in the rooms DB. First, determine if the room is in the reservations table. If so, check the date ranges to see if they are outside of the date range in the resveration table. Determine if the date range is available for that particular room. Loop through the reservations table, if checkIn
+  // The search function will run once the search button is clicked, and will access all of the data in the rooms DB. First, determine if the room is in the reservations table. If so, check the dates for that room. If the date range requested is outside of the date range in the reservation table, display that room. Else, do not display that room. 
   search() {
     console.log(this.checkIn);
     console.log(this.checkOut);
     console.log(this.reservationService);
-    console.log(this.reservations);
-    console.log(this.reservations.check_in);
-    console.log(this.reservations.check_out);
+    for (let i = 0; i < this.reservations.length; i++) {
+      console.log(this.reservations[i]);
+      console.log(this.reservations[i].check_in);
+      console.log(this.reservations[i].check_out);
+      if (this.checkOut < this.reservations[i].check_in || this.checkIn > this.reservations[i].check_out) {
+        console.log(`Date range works for room ${this.reservations[i].room_number}`);
+        i++;
+      } else if (this.reservations[i].check_in < this.checkIn && this.checkIn < this.reservations[i].check_out) {
+        console.log(`${this.checkIn} is within a current reservation and room ${this.reservations[i].room_number} is not available`);
+        i++;
+      }
+    }
     
     this.roomService.getRooms().subscribe((response) => {
       this.rooms = response;
