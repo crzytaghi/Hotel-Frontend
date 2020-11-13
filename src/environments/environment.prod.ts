@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiHost: 'https://immense-scrubland-30123.herokuapp.com/'
 };

@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; //Inject HttpClient as a dependency
+import { environment } from 'src/environments/environment';
+
+const API_HOST = environment.apiHost;
+const RESERVATIONS = `${API_HOST}/reservations/`
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +17,7 @@ export class ReservationService {
   constructor(private http: HttpClient) { }
 
   getReservations() {
-    return this.http.get(this.localHost);
+    return this.http.get(RESERVATIONS);
   }
 
   // NEED TO COMPLETE DELETE AND UPDATE ROUTES
@@ -21,7 +25,7 @@ export class ReservationService {
   deleteReservation(reservation) {
     console.log(reservation);
     
-    const url = `${this.localHost}/${reservation}`;
+    const url = `${RESERVATIONS}/${reservation}`;
     console.log(url);
 
     return this.http.delete(url);
@@ -33,7 +37,7 @@ export class ReservationService {
     console.log(checkIn);
     console.log(checkOut);
     
-    const url = `${this.localHost}/${reservation}`;
+    const url = `${RESERVATIONS}/${reservation}`;
     const body = {
       room_number: roomNumber,
       check_in: checkIn,
@@ -48,7 +52,7 @@ export class ReservationService {
       check_in: checkIn,
       check_out: checkOut
     };
-    return this.http.post(this.localHost,body);
+    return this.http.post(RESERVATIONS,body);
   }
   
 }
