@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RoomService {
 
+  // Import the apiHost from the environment file. Enables Angular to run the local api or production based on the ng build
   private API_HOST = environment.apiHost;
   private ROOMS = `${this.API_HOST}/rooms`;
 

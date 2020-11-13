@@ -16,8 +16,7 @@ export class ReservationService {
     return this.http.get(this.RESERVATIONS);
   }
 
-  // NEED TO COMPLETE DELETE AND UPDATE ROUTES
-
+  // Delete the specific reservation based on the ID at that index, pulled from the reservation parameter
   deleteReservation(reservation) {
     console.log(reservation);
     
@@ -28,12 +27,13 @@ export class ReservationService {
   }
 
   updateReservation(reservation, roomNumber, checkIn, checkOut) {
-    console.log(reservation);
+    // reservation is the ID of the reservation
     console.log(roomNumber);
     console.log(checkIn);
     console.log(checkOut);
     
     const url = `${this.RESERVATIONS}/${reservation}`;
+    // Create a variable called body that contains all of the information needed to update the current reservation
     const body = {
       room_number: roomNumber,
       check_in: checkIn,
@@ -42,6 +42,7 @@ export class ReservationService {
     return this.http.put(url, body);
   }
 
+  // POST
   reserve(roomNumber, checkIn, checkOut) {
     const body = {
       room_number: roomNumber,
