@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReservationDetailsComponent } from './components/reservation-details/reservation-details.component';
 import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
-import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
 import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { SearchComponent } from './components/search/search.component';
     AppComponent,
     ReservationDetailsComponent,
     ReservationListComponent,
-    RoomsListComponent,
     SearchComponent
   ],
   imports: [
