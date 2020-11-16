@@ -1,7 +1,7 @@
 <div class="search">
     <h2>Book a Room</h2>
-    Check-In: <input type="date" [(ngModel)]="checkIn"><br>
-    Check-Out: <input type="date" [(ngModel)]="checkOut"><br>
+    Check-In: <input type="date" [(ngModel)]="checkIn" required="true"><br>
+    Check-Out: <input type="date" [(ngModel)]="checkOut" required="true"><br>
     <input type="submit" value="Search" (click)="search()">
 </div>
 
